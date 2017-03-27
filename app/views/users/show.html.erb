@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <%= form_tag posts_path, :method => 'get', class: "col s4 push-s4" do %>
+    <div class="input-field">
+      <%= search_field_tag :search, params[:search], id: "search" %>
+      <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+      <i class="material-icons">close</i>
+    </div>
+  <% end %>
+</div>
+
+<% @user_posts.each do |post| %>
+  <div class="row">
+    <div class="col s8 offset-s2">
+      <div class="card hoverable">
+        <div class="card-image">
+          <%= link_to post do %> 
+            <%= image_tag post.avatar.url %>
+            <span class="card-title"><%= post.title %></span>
+          <% end %>
+        </div>
+        <div class="card-content">
+          <%= post.desc %>
+        </div>
+        <div class="card-action">
+          <div class="row">
+            <div class="col s1">
+              <a href="#" class="btn-floating red"><i class="material-icons">thumb_up</i></a>
+            </div>
+            <div class="col s4 push-s7">
+              <div class="row">
+                <div class="col s4">
+                  <%= link_to post, class: "btn-floating yellow darken-1" do %>
+                    <i class="material-icons">visibility</i>
+                  <% end -%>
+                </div>
+                <div class="col s4">
+                  <%= link_to edit_post_path(post), class: "btn-floating green" do %>
+                    <i class="material-icons">edit</i>
+                  <% end %>
+                </div>
+                <div class="col s4">
+                  <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-floating blue" do %>
+                    <i class="material-icons">delete</i>
+                  <% end %>
+                </div>                    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="fixed-action-btn">
+  <%= link_to new_post_path, class: "btn-floating btn-large red" do %>
+    <i class="large material-icons">add</i>
+  <% end -%>
+</div>
+

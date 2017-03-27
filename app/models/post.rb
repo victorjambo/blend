@@ -9,4 +9,6 @@ class Post < ApplicationRecord
   			all.order("created_at DESC")
   		end
   	end
+
+  	belongs_to :user
 end
