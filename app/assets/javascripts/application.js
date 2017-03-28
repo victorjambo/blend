@@ -15,3 +15,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function showProgress(){
+	document.getElementById("progress-bar").setAttribute("class", "progress");
+}  

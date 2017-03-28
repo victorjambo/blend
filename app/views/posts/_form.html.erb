@@ -1,3 +1,7 @@
+<div class="progress-inactive" id="progress-bar">
+  <div class="indeterminate"></div>
+</div>
+
 <%= form_for(post) do |f| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
@@ -39,7 +43,7 @@
             <%= f.text_area :desc, class: "materialize-textarea" %>
           </div>
         </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">
+        <button onclick="showProgress()" class="btn waves-effect waves-light" type="submit" name="action">
           <%= f.submit %>
           <i class="material-icons right">send</i>
         </button>
@@ -48,3 +52,4 @@
     
 
 <% end %>
+

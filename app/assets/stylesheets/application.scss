@@ -19,6 +19,6 @@ $secondary-color: color("yellow", "base") !default;
 @import 'materialize';
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
-.top-nav {
+.top-nav,.btn,.progress {
 	background-color: #2ecc71
 }
