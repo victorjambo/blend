@@ -52,7 +52,7 @@ class PostsController < ApplicationController
       end
     end
   end
-
+  
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
@@ -61,6 +61,18 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upvote 
+    @post = Post.find(params[:id])
+    @post.upvote_by current_user
+    redirect_to :back
+  end  
+
+  def downvote
+    @post = Post.find(params[:id])
+    @post.downvote_from current_user
+    redirect_to :back
   end
 
   private

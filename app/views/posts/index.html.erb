@@ -26,7 +26,11 @@
         <div class="card-action">
           <div class="row">
             <div class="col s1">
-              <a href="#" class="btn-floating red"><i class="material-icons">thumb_up</i></a>
+              <!-- like -->
+              <%= link_to like_post_path(post), method: :put, class: "waves-effect waves-light btn red" do %>
+                <i class="material-icons left">thumb_up</i>
+                <%= post.get_upvotes.size %>
+              <% end %>
             </div>
             <div class="col s4 push-s7">
               <div class="row">
