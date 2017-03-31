@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'devise', '~> 4.2', '>= 4.2.1'
 gem "paperclip", "~> 5.0.0"
 gem 'material_icons'

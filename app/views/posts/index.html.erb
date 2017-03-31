@@ -34,6 +34,9 @@
                   <%= link_to post, class: "btn-floating yellow darken-1" do %>
                     <i class="material-icons">visibility</i>
                   <% end -%>
+                  <!-- Display user -->
+                  <%= post.user.user_name %>
+                  <%= time_ago_in_words post.created_at %>
                 </div>
                 <% if post.user == current_user %>
                 <div class="col s4">

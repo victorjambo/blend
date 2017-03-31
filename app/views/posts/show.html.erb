@@ -21,4 +21,9 @@
 		<i class="large material-icons">mode_edit</i>
 	<% end -%>
 </div>
-
+<% if @post.comments %>
+    <%= render 'comments/comment' %>
+<% end %>
+<%= form_for [@post, @post.comments.new] do |f| %>
+    <%= f.text_field :content, placeholder: 'Add a comment...' %>
+<% end %>
