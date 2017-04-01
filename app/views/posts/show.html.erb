@@ -24,6 +24,8 @@
 <% if @post.comments %>
     <%= render 'comments/comment' %>
 <% end %>
-<%= form_for [@post, @post.comments.new] do |f| %>
-    <%= f.text_field :content, placeholder: 'Add a comment...' %>
+<% if user_signed_in? %>
+    <%= form_for [@post, @post.comments.new] do |f| %>
+        <%= f.text_field :content, placeholder: 'Add a comment...' %>
+    <% end %>
 <% end %>

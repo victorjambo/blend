@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_attached_file :avi, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avi, content_type: /\Aimage\/.*\z/
 
-  validates :user_id, presence: true
+  validates :user_name, presence: true
   
   has_many :comments, dependent: :destroy
 end

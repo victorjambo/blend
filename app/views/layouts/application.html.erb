@@ -17,6 +17,7 @@
 		        	<%  if user_signed_in? %>
                 <li><%= link_to "Profile", user_path(current_user.id) %></li>
                 <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
+                
               <% else %>
                 <li><%= link_to "Join", new_user_registration_path %></li>
                 <li><%= link_to "login", new_user_session_path %></li>
@@ -32,5 +33,14 @@
     <div class="container">
       <%= yield %>
     </div>
+    
+    <%  if user_signed_in? %>
+      <div class="fixed-action-btn">
+        <%= link_to new_post_path, class: "btn-floating btn-large red" do %>
+          <i class="large material-icons">add</i>
+        <% end -%>
+      </div>
+    <% end %>
+    
   </body>
 </html>
