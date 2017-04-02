@@ -6,6 +6,10 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>    
+      
+    </style>
   </head>
 
   <body>
@@ -15,9 +19,16 @@
 		    	<a href="/" class="brand-logo">Blend</a>
 		    	<ul id="nav-mobile" class="right hide-on-med-and-down">
 		        	<%  if user_signed_in? %>
-                <li><%= link_to "Profile", user_path(current_user.id) %></li>
-                <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
-                
+                <li><%#= image_tag current_user.avi.url(:small), alt: "avi", class: "circle avipic" %></li>
+                <!-- Dropdown Trigger -->
+                <li>
+                  <a class='dropdown-button' href='#' data-activates='dropdown1'><%= current_user.user_name %></a>
+                </li>
+                <!-- Dropdown Structure -->
+                <ul id='dropdown1' class='dropdown-content'>
+                  <li><%= link_to "Profile", user_path(current_user.id), style: "color: #2ecc71" %></li>
+                  <li><%= link_to "logout", destroy_user_session_path, method: :delete, style: "color: #2ecc71" %></li>
+                </ul>
               <% else %>
                 <li><%= link_to "Join", new_user_registration_path %></li>
                 <li><%= link_to "login", new_user_session_path %></li>
@@ -26,6 +37,10 @@
 		    </div>
 	    </div>
     </nav>
+
+    
+
+    
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

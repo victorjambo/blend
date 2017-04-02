@@ -19,3 +19,5 @@
 function showProgress(){
 	document.getElementById("progress-bar").setAttribute("class", "progress");
 }  
+
+$(".dropdown-button").dropdown()
