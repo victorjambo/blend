@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#gem 'omniauth-twitter', '~> 1.4'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'devise', '~> 4.2', '>= 4.2.1'
 gem "paperclip", "~> 5.0.0"
@@ -58,7 +59,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
-  #gem 
+  #gem
 end
 
-ruby "2.3.1"
+ruby "2.3.4"
